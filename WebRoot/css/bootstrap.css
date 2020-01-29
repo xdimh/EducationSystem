@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+*:focus { background-color: #fff; } 
+
+body {
+	margin:0;
+	padding:0;
+	background:#FFF url(../images/bg.jpg) repeat-x fixed 0 0;
+}
+
+#login {
+	width: 400px;
+	height: 232px;
+	margin: 20px auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left:-200px;
+	margin-top:-148px;
+	border: 5px #f4f4f4 solid;
+	min-width: 200px;
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+#login .inner{
+	background-color: #FFF;
+	border: 1px #cccccc solid;
+	min-height: 230px;
+	overflow: hidden;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#login .logo {
+	width: 210px;
+	height: 41px;
+	margin: 20px auto 12px auto;
+	text-align: center;
+	font-size:25px;
+	font-weight:bold;
+	z-index: 11;
+	background-color: #FFF;
+}
+.logo span {
+	display:block;
+	margin-top:28px;
+}
+#login .ribbon {
+	background-image: url(../images/logform.png);
+	position: absolute;
+	width: 111px;
+	height: 110px;
+	z-index: 12;
+	margin-top: -8px;
+	margin-left: -9px;
+}
+
+#login #username_id {
+	background:#FFF url(../images/user_.png) no-repeat 2px 3px;
+}
+
+#login #password {
+	background:#FFF url(../images/pass_.png) no-repeat 2px 3px;
+}
+
+#login .formLogin {
+	margin:0px auto;
+	position:relative;
+	left:50%;
+	margin-left:-145px;
+	margin-top:5px;
+}
+
+#login #username_id,#login #password {
+	font-size: 20px;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	margin-bottom: 10px;
+	border:solid 1px #ddd;
+	outline:none;
+	border-radius:3px;
+	width:282px;
+	padding:0px 7px 0px 7px;
+}
+
+.loginButton {
+	width:300px;
+	margin-top:5px;
+	font-size:14px;
+}
+
+input[type="submit"] {
+	float:right;
+	background:url(../images/btn.gif) repeat-x 0px -204px;
+	border:1px solid #999;
+	border-radius:3px;
+	height:30px;
+	line-height:30px;
+	width:60px;
+	cursor:pointer;
+	margin-right:5px;
+}
+
+.loginButton .checkbox {
+	width:100px;
+	padding:5px 0px 0px; 
+	height:35px;
+	float:left;
+}
+
+input[type="submit"]:hover {
+	background:url(../images/btn.gif) repeat-x 0px -156px;
+}
+
+#login .shadow {
+	position: absolute;
+	width: 434px;	
+	margin-top: 5px;
+	background-image: url(../images/shadowForm.png);
+	height: 33px;
+	margin-left: -20px;
+}
+
+#versionBar {
+	height:35px;
+	background:url(../images/top_bgrepeat.jpg) repeat-x bottom;
+	width:100%;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	line-height:0px;
+	text-align:center;
+}
+
+.copyright {
+	position:relative;
+	top:50%;
+	text-align: center;
+	font-size: 13px;
+	color: #CCC;
+}

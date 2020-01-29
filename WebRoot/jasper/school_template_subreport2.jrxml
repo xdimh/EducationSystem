@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="school_template_subreport2" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="328c02c9-65ed-4af0-8c64-1c39bbeeab2e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="sid" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from school_scale where sid=$P{sid};]]>
+	</queryString>
+	<field name="area" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="stu_num" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="m_point" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="d_point" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<elementGroup>
+				<elementGroup>
+					<textField>
+						<reportElement x="178" y="31" width="89" height="31" uuid="682a0480-b7cd-492d-b0cb-c39b4ed2ace1"/>
+						<box>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[( $F{m_point} == null ? "" : ($F{m_point}.toString().equals("0")?"多":($F{m_point}.toString().equals("-1")?"少":$F{m_point}) ))]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="267" y="31" width="91" height="31" uuid="682a0480-b7cd-492d-b0cb-c39b4ed2ace1"/>
+						<box>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[( $F{d_point} == null ? "" : ($F{d_point}.toString().equals("0") ?"多":($F{d_point}.toString().equals("-1")?"少":$F{d_point}) ))]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="267" y="0" width="91" height="31" uuid="fb0056ee-5cbf-4d26-8e84-f07e2fe8c6c3"/>
+						<box>
+							<leftPen lineWidth="1.0"/>
+							<rightPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[博士点]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="89" y="31" width="89" height="31" uuid="682a0480-b7cd-492d-b0cb-c39b4ed2ace1"/>
+						<box>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[($F{stu_num}.equals("0") ? "":$F{stu_num})]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="31" width="89" height="31" uuid="682a0480-b7cd-492d-b0cb-c39b4ed2ace1"/>
+						<box>
+							<topPen lineWidth="1.0"/>
+							<leftPen lineWidth="1.0"/>
+							<bottomPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[( $F{area}.equals("0") ?  "" : $F{area})]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="89" y="0" width="89" height="31" uuid="bf4baee4-4d80-4027-adec-5e394984c6d2"/>
+						<box>
+							<leftPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[在校生]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="89" height="31" uuid="2283696d-61ee-4461-97b2-684e90ab576f"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[占  地]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="178" y="0" width="89" height="31" uuid="61517d6c-00ba-45ae-8737-ed1cfcfd3600"/>
+						<box>
+							<leftPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="宋体" size="16" pdfFontName="STSong-Light" pdfEncoding="UniGB-UCS2-H" isPdfEmbedded="true"/>
+						</textElement>
+						<text><![CDATA[硕士点]]></text>
+					</staticText>
+				</elementGroup>
+			</elementGroup>
+		</band>
+	</detail>
+</jasperReport>

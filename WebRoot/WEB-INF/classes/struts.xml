@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+ 
+ <constant name="struts.devMode" value="true" />
+ <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+ 
+ <package name="EducationSystem"  extends="struts-default,json-default" >
+ <!--
+ 	<interceptors>
+ 		<interceptor name="AuthenticationInterceptor" class="org.qbec.interceptor.AuthenticationInterceptor"></interceptor>
+ 		<interceptor name="HibernateSessionRequestInterceptor" class="org.qbec.interceptor.HibernateSessionRequestInterceptor"></interceptor>
+ 		<interceptor-stack name="qbecStack">
+ 			<interceptor-ref name="AuthenticationInterceptor"></interceptor-ref>
+ 			<interceptor-ref name="HibernateSessionRequestInterceptor"></interceptor-ref>
+ 			<interceptor-ref name="json">
+           		 <param name="contentType">application/json</param>
+        	</interceptor-ref>	
+ 			<interceptor-ref name="defaultStack"></interceptor-ref>
+ 		</interceptor-stack>
+ 	</interceptors>
+ 
+ 	<default-interceptor-ref name="qbecStack"></default-interceptor-ref>
+ 	<global-results>
+ 		<result name="NOT_LOGIN">/login.jsp</result>
+ 	</global-results>
+ 	-->
+ 	<action name="qbec_*" method="{1}" class="org.qbec.action.QBEducationCounselAction">
+	  <result name="home">/home.jsp</result>
+	  <result name="condition_search">/condition_search.jsp</result>
+	  <result name="sinfo">/schoolInfo.jsp</result>
+	  <result name="online_add">/online_add.jsp</result>
+    </action>
+   
+    <action name="school_*" method="{1}" class="org.qbec.action.OperationRelateToSchoolAction">
+    	<result name="queryset" type="json"><param name="includeProperties">aaData</param></result>
+    	<result name="schoolinfo" type="json"><param name="includeProperties">schoolInfoData</param></result>
+    	<result name="updateinfo" type="json"><param name="includeProperties">schoolInfoData</param></result>
+    	<result name="addSchoolInfo" type="json"><param name="includeProperties">schoolInfoData</param></result>
+    	<result name="year" type="json"><param name="includeProperties">schoolInfoData</param></result>
+    	<result name="deleteSchool" type="json"><param name="includeProperties">schoolInfoData</param></result>
+    </action> 
+    
+ </package>
+ 
+ <package name="default" extends="struts-default,jasperreports-default">
+		<action name="PDF" class="org.qbec.action.JasperAction">
+			<result name="success" type="jasper">
+				<param name="location">
+					/jasper/school_template.jasper
+				</param>
+				<param name="connection">conn</param>
+				<param name="reportParameters">param</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
+</package>
+
+<package name="regist" extends="struts-default,json-default">
+		<action name="regist" class="org.qbec.action.RegisterAction">
+			 <result name="home" type="json"><param name="includeProperties"></param></result>
+		</action>
+		<action name="login" class="org.qbec.action.QBEducationCounselAction" method="login">
+	 	   <result name="login">/login.jsp</result>
+	    </action>
+	    <action name="user_*" class="org.qbec.action.AuthenticationUserAction" method="{1}">
+			 <result name="validateuser" type="json"><param name="includeProperties">resultCode</param></result>
+			 <result name="existedcheck" type="json"><param name="includeProperties">resultCode</param></result>
+		</action>
+</package>
+
+</struts>
