@@ -38,13 +38,12 @@
 									<h4 class="subTitle">招生类型：</h4>
 									<ul id="category" class="search_condition">
 										<li><span mark="attr_all"></span>全部</li>
-										<li><span></span>美术类</li>
-										<li><span></span>音乐类</li>
-										<li><span></span>影视类</li>
-										<li><span></span>播音类</li>
-										<li><span></span>编导类</li>
-										<li><span></span>摄制类</li>
-										<li><span></span>体育类</li>
+										<li><span></span>综合类</li>
+										<li><span></span>政法类</li>
+										<li><span></span>师范类</li>
+										<li><span></span>财经类</li>
+										<li><span></span>语言类</li>
+										<li><span></span>医药类</li>
 									</ul>
 									<h4 class="subTitle">学校查询科目：</h4>
 									<ul id="subject" class="search_condition">
@@ -71,20 +70,25 @@
 										-
 										<input type="text" id="post" name="post"/>
 										<input type="hidden" id="isvlidate" />
-										<span id="bl_result" style="display: inline-block;margin-left: 15px;color: rgb(252, 3, 13);font-weight: bold;"></span>
+										<span id="bl_result" style="display: inline-block;margin-left: 15px;color: rgb(252,3,13);font-weight: bold;"></span>
 										<div class="btn-group" data-toggle="buttons-checkbox" style="margin-left: 40px;">
 											<button id="begin_validate" type="button" class="btn btn-primary">开启验证</button>
+											<ul id="extra" class="search_condition">
+												<li><span mark="attr_all" ></span>全部</li>
+												<li><span></span>仅显示大于等于</li>
+												<li><span></span>仅显示小于</li>
+											</ul>
 										</div>
-										<ul class="radio first_radio">
+										<ul class="js-bl radio first_radio">
 											<li><span></span>按年数查询</li>
 											<li><span></span>按年份查询</li>
 										</ul>
-										<ul class="radio">
+										<ul class="js-bl radio">
 											<li><span></span>1年</li>
 											<li><span></span>2年</li>
 											<li><span></span>3年</li>
 										</ul>
-										<ul id="year" class="search_condition" style="display:none;">
+										<ul id="year" class="js-bl search_condition" style="display:none;">
 											<li class="no1"><span mark="attr_all"></span>全部</li>
 											<li><span></span>2010年</li>
 											<li><span></span>2011年</li>

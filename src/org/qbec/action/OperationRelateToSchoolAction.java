@@ -150,6 +150,7 @@ public class OperationRelateToSchoolAction {
 		String groupByStr = "";
 		String havingStr = "";
 		String orderByStr = "";
+		String mostCompare = "";
 		queryData = queryData.substring(1);
 		queryData = queryData.substring(0,queryData.length()-1);
 		queryData = queryData.replace("\\","");
@@ -335,13 +336,28 @@ public class OperationRelateToSchoolAction {
 					lkRatiOrWkRatioStr = " (wk_ratio>=" + sentData.get("pre") + " or wk_ratio=0 or wk_ratio=-1)";
 				}
 			}else {
+				ArrayList extra = new ArrayList();
+				String wkMostCompare = "";
+				String lkMostCompare = "";
+				if (sentData.containsKey("extra")) {
+					extra = (ArrayList)sentData.get("extra");
+				}
+				if (extra.size() < 2) {
+					if (((String)extra.get(0)).equals("仅显示大于等于")) {
+						wkMostCompare = " and (wk_num >= " + sentData.get("pt") + " or wk_num IS NULL)";
+						lkMostCompare = " and lk_num >= " + sentData.get("pt") + " or lk_num IS NULL)";
+					} else {
+						wkMostCompare = " and wk_num < " + sentData.get("pt")  + " or wk_num IS NULL)";
+						lkMostCompare = " and lk_num < " + sentData.get("pt")  + " or lk_num IS NULL)";
+					}
+				}
 				if(sentData.containsKey("lk"))
 				{
 //					lkRatiOrWkRatioStr = " ((lk_ratio>=1 and " + "lk_ratio<="+sentData.get("post")+") or "+ c1 + sentData.get("post") + common + "or " + c2 + sentData.get("post") + common + ")" + lkNumStr;
-					lkRatiOrWkRatioStr = " ((lk_ratio>=1 and " + "lk_ratio<="+sentData.get("post")+")" + " or lk_ratio=0 or lk_ratio=-1)";
+					lkRatiOrWkRatioStr = " ((lk_ratio>=1 and " + "lk_ratio<="+sentData.get("post")+")" + " or lk_ratio=0 or lk_ratio=-1)" + lkMostCompare;
 				}else{
 //					lkRatiOrWkRatioStr = " ((wk_ratio>=1 and " + "wk_ratio<="+sentData.get("post")+") or "+ w_c1 + sentData.get("post") + common + "or " + w_c2 + sentData.get("post") + common + ")" + wkNumStr;
-					lkRatiOrWkRatioStr = " ((wk_ratio>=1 and " + "wk_ratio<="+sentData.get("post")+")"  + " or wk_ratio=0 or wk_ratio=-1)";
+					lkRatiOrWkRatioStr = " ((wk_ratio>=1 and " + "wk_ratio<="+sentData.get("post")+")"  + " or wk_ratio=0 or wk_ratio=-1)" + wkMostCompare;
 				}
 			}
 			if(((String)bl.get(0)).equals("按年数查询"))

@@ -651,14 +651,30 @@ input#pre,input#post {
 	color : red;	
 }
 td.c-width {
-            width: 47px;
-            height: 25px;
-            word-wrap:break-word;
-            vertical-align: middle;
-            text-align:center;
-            cursor: text;
-        }
+	width: 47px;
+	height: 25px;
+	word-wrap:break-word;
+	vertical-align: middle;
+	text-align:center;
+	cursor: text;
+}
 
-       #school_info .j-input {
-            cursor:pointer;
-        }
+#school_info .j-input {
+	cursor:pointer;
+}
+
+
+.btn-group {
+   display: inline-flex;
+}
+
+#begin_validate {
+	border-radius: 4px;
+}
+
+#extra {
+	display: inline-flex;
+	align-items: center;
+	height: 30px;
+	font-size: 16px;
+}
